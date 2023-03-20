@@ -75,6 +75,10 @@ case "$choice" in
   2)
     echo -e "${GREEN}Creating Python script...${NC}"
     # Call function to create Python script
+    echo -e "${YELLOW}Creating Python script for influxdb..."
+    
+    #curl -sSL https://raw.githubusercontent.com/WantClue/Pi-Solar/main/influxdb-integration.sh | bash
+    read -p "Press [Enter] key to continue..."
     ;;
   3)
     echo -e "${GREEN}Exiting...${NC}"
