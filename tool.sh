@@ -46,6 +46,17 @@ check_figlet() {
     fi
 }
 
+# Check if Python 3 is installed
+check_python() {
+if command -v python3 &>/dev/null; then
+    echo "Python 3 is already installed."
+else
+    # Python 3 is not installed, so install it
+    echo "Python 3 is not installed. Installing..."
+    sudo apt-get update
+    sudo apt-get install -y python3
+fi
+}
 # call the function to check if the script is run as root
 check_root
 
@@ -53,7 +64,8 @@ check_root
 echo -e "${CYAN}Please choose an option:${NC}"
 echo -e "${YELLOW}1. Install LCD driver${NC}"
 echo -e "${YELLOW}2. Create Python script${NC}"
-echo -e "${YELLOW}3. Exit${NC}"
+echo -e "${YELLOW}3. Make Python script executed by startup${NC}"
+echo -e "${YELLOW}4. Exit${NC}"
 
 # Get user input
 read -p "Enter option number: " choice
@@ -70,17 +82,24 @@ case "$choice" in
     read -p "Press [Enter] key to continue..."
     check_figlet
     read -p "Press [Enter] key to continue..."
-    #curl -sSL https://raw.githubusercontent.com/WantClue/Pi-Solar/main/install-LCD.sh | bash
+    curl -sSL https://raw.githubusercontent.com/WantClue/Pi-Solar/main/install-LCD.sh | bash
     ;;
   2)
     echo -e "${GREEN}Creating Python script...${NC}"
     # Call function to create Python script
     echo -e "${YELLOW}Creating Python script for influxdb..."
     
-    #curl -sSL https://raw.githubusercontent.com/WantClue/Pi-Solar/main/influxdb-integration.sh | bash
+    curl -sSL https://raw.githubusercontent.com/WantClue/Pi-Solar/main/influxdb-integration.sh | bash
     read -p "Press [Enter] key to continue..."
     ;;
   3)
+    echo -e "${GREEN}Make Python script executed at startup...${NC}"
+    # Write python script in the Bashrc file to make it executeable
+    check_python
+    curl -SSL https://raw.githubusercontent.con/WantCLue/Pi-Solar/main/influxdb-LCD-bootable.py
+    python3 influxdb-LCD-bootable.py
+    ;;
+  4)
     echo -e "${GREEN}Exiting...${NC}"
     exit 0
     ;;
