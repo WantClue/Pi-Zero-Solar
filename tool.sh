@@ -82,21 +82,21 @@ case "$choice" in
     read -p "Press [Enter] key to continue..."
     check_figlet
     read -p "Press [Enter] key to continue..."
-    curl -sSL https://raw.githubusercontent.com/WantClue/Pi-Solar/main/install-LCD.sh | bash
+    curl -sSL https://raw.githubusercontent.com/WantClue/Pi-Zero-Solar/main/install-LCD.sh | bash
     ;;
   2)
     echo -e "${GREEN}Creating Python script...${NC}"
     # Call function to create Python script
     echo -e "${YELLOW}Creating Python script for influxdb..."
     
-    curl -sSL https://raw.githubusercontent.com/WantClue/Pi-Solar/main/influxdb-integration.sh | bash
+    curl -sSL https://raw.githubusercontent.com/WantClue/Pi-Zero-Solar/main/influxdb-integration.sh | bash
     read -p "Press [Enter] key to continue..."
     ;;
   3)
     echo -e "${GREEN}Make Python script executed at startup...${NC}"
     # Write python script in the Bashrc file to make it executeable
     check_python
-    curl -SSL https://raw.githubusercontent.con/WantCLue/Pi-Solar/main/influxdb-LCD-bootable.py
+    curl -SSL https://raw.githubusercontent.con/WantCLue/Pi-Zero-Solar/main/influxdb-LCD-bootable.py
     python3 influxdb-LCD-bootable.py
     ;;
   4)
