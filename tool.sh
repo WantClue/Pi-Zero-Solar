@@ -70,7 +70,17 @@ check_install_pip3() {
     fi
 }
 
-
+check_install_git() {
+    # Check if Git is installed
+    if command -v git &>/dev/null; then
+        echo "Git is already installed."
+    else
+        # Git is not installed, so install it
+        echo "Git is not installed. Installing..."
+        sudo apt-get update
+        sudo apt-get install -y git
+    fi
+}
 
 # call the function to check if the script is run as root
 check_root
@@ -101,6 +111,8 @@ case "$choice" in
     read -p "Press [Enter] key to continue..."
     check_figlet
     read -p "Press [Enter] key to continue..."
+    check_install_git    
+    read -p "Press [Enter] key to continue..."    
     curl -sSL https://raw.githubusercontent.com/WantClue/Pi-Zero-Solar/main/install-LCD.sh | bash
     ;;
   2)
