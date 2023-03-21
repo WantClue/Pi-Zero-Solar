@@ -78,6 +78,8 @@ case "$choice" in
     read -p "Press [Enter] key to continue..."
     check_curl
     read -p "Press [Enter] key to continue..."
+    check_python
+    read -p "Press [Enter] key to continue..."
     check_install_influxdb_client
     read -p "Press [Enter] key to continue..."
     check_figlet
