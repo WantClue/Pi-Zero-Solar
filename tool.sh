@@ -120,7 +120,9 @@ case "$choice" in
     # Call function to create Python script
     echo -e "${YELLOW}Creating Python script for influxdb..."
     
-    curl -sSL https://raw.githubusercontent.com/WantClue/Pi-Zero-Solar/main/influxdb-integration.sh | bash
+    wget https://raw.githubusercontent.com/WantClue/Pi-Zero-Solar/main/influxdb-integration.sh
+    chmod +x influxdb-integration.sh
+    sudo ./influxdb-integration.sh
     read -p "Press [Enter] key to continue..."
     ;;
   3)

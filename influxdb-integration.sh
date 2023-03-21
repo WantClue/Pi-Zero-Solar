@@ -85,3 +85,4 @@ finally:
 EOF
 
 echo "Python script created successfully."
+./tool.sh
