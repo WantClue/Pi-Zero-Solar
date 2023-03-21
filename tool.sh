@@ -57,6 +57,21 @@ else
     sudo apt-get install -y python3
 fi
 }
+
+check_install_pip3() {
+    # Check if pip3 is installed
+    if command -v pip3 &>/dev/null; then
+        echo "pip3 is already installed."
+    else
+        # pip3 is not installed, so install it
+        echo "pip3 is not installed. Installing..."
+        sudo apt-get update
+        sudo apt-get install -y python3-pip
+    fi
+}
+
+
+
 # call the function to check if the script is run as root
 check_root
 
@@ -79,6 +94,8 @@ case "$choice" in
     check_curl
     read -p "Press [Enter] key to continue..."
     check_python
+    read -p "Press [Enter] key to continue..."
+    check_install_pip3
     read -p "Press [Enter] key to continue..."
     check_install_influxdb_client
     read -p "Press [Enter] key to continue..."
