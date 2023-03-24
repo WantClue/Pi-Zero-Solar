@@ -13,4 +13,4 @@ current_user = username
 # Open bashrc file in append mode
 with open(os.path.expanduser("~/.bashrc"), "a") as bashrc_file:
     # Append current user to the file
-    bashrc_file.write(f"\n# sudo python3 /home/{current_user}/influx_query.py")
+    bashrc_file.write(f"\n sudo python3 /home/{current_user}/influx_query.py")

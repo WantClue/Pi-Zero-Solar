@@ -92,6 +92,8 @@ echo -e "${YELLOW}2. Create Python script${NC}"
 echo -e "${YELLOW}3. Make Python script executed by startup${NC}"
 echo -e "${YELLOW}4. Exit${NC}"
 
+echo -e "${CYAN}After installing the driver the device will reboot."
+
 # Get user input
 read -p "Enter option number: " choice
 
